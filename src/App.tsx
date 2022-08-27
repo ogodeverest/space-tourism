@@ -105,6 +105,8 @@ function App() {
     });
   }, []);
 
+  console.log("test");
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
