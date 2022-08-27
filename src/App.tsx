@@ -105,7 +105,7 @@ function App() {
     });
   }, []);
 
-  console.log("test");
+  console.log("test 1");
 
   return (
     <ThemeProvider theme={theme}>
