@@ -40,8 +40,8 @@ const theme: DefaultTheme = {
   },
   utils: {
     general: {
-      flex: (gap: string = "1rem") => `display: flex;gap: ${gap};`,
-      grid: (gap: string = "1rem") => `display: grid;gap: ${gap};`,
+      flex: (gap = "1rem") => `display: flex;gap: ${gap};`,
+      grid: (gap = "1rem") => `display: grid;gap: ${gap};`,
       block: "display: block;",
       flow: (
         space: "normal" | "small" | "big" = "normal"
