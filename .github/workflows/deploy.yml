@@ -1,0 +1,27 @@
+name: Node Continous Deployment
+on:
+  push:
+    branches:
+      - master
+jobs:
+ build-test-deploy:
+   runs-on: ubuntu-latest
+   steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name : Set up node
+        uses: actions/setup-node@v1
+      with:
+       node-version: 12
+      - run: npm ci
+      - run: npm run build
+      - run: npm run test
+      - name: Deploy
+        uses: crazy-max/ghaction-github-pages@v3.0.0
+        with:
+         target_branch: gh-pages
+         build_dir: build
+        env:
+         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+
