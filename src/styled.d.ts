@@ -1,4 +1,4 @@
-import "styled-components";
+import 'styled-components';
 
 interface BreakPoints {
   tabletDesktop: string;
@@ -45,7 +45,7 @@ interface GeneralUtils {
   flex: (gap?: string) => string;
   grid: (gap?: string) => string;
   block: string;
-  flow: (space: "normal" | "small" | "big" = "normal") => string;
+  flow: (space: 'normal' | 'small' | 'big' = 'normal') => string;
 }
 
 interface BackgroundUtils {
@@ -91,7 +91,7 @@ interface ColorUtils {
   white: string;
 }
 
-declare module "styled-components" {
+declare module 'styled-components' {
   export interface DefaultTheme {
     colors: Colors;
     font: Font;

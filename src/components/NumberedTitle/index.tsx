@@ -1,1 +1,1 @@
-export { default } from "./NumberedTitle";
+export {default} from './NumberedTitle';

@@ -1,1 +1,1 @@
-export { default } from "./DotIndicators";
+export {default} from './DotIndicators';

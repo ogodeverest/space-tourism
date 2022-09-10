@@ -1,6 +1,6 @@
-import React from "react";
-import styled, { DefaultTheme } from "styled-components";
-import { mediaQuery } from "theme";
+import React from 'react';
+import styled, {DefaultTheme} from 'styled-components';
+import {mediaQuery} from 'theme';
 
 type Props = {
   theme: DefaultTheme;
@@ -18,14 +18,14 @@ const GridContainer = styled.div`
     max-width: 50ch;
   }
 
-  ${({ theme, columnGap }: Props) =>
+  ${({theme, columnGap}: Props) =>
     mediaQuery(
       theme.breakPoints.desktopUp,
       `
     text-align: left;
-    column-gap: ${columnGap || "2rem"};
+    column-gap: ${columnGap || '2rem'};
     grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(1rem,1fr);
-  }`
+  }`,
     )}
 `;
 

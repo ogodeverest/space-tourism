@@ -1,4 +1,4 @@
-import Images from "./Images";
+import Images from './Images';
 
 export default interface Entity {
   slug: string;

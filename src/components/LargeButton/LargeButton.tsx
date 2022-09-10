@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link, LinkProps } from "react-router-dom";
-import styled from "styled-components";
-import { motion, Variants } from "framer-motion";
+import React from 'react';
+import PropTypes from 'prop-types';
+import {Link, LinkProps} from 'react-router-dom';
+import styled from 'styled-components';
+import {motion, Variants} from 'framer-motion';
 
 interface Props extends LinkProps {
   id: string;
@@ -13,7 +13,7 @@ const buttonVariants: Variants = {
     opacity: 0,
     scale: 0,
   },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } },
+  visible: {opacity: 1, scale: 1, transition: {duration: 0.6}},
 };
 
 const MotionButton = motion(styled(Link)`
@@ -26,7 +26,7 @@ const MotionButton = motion(styled(Link)`
   border-radius: 50%;
   aspect-ratio: 1;
   text-decoration: none;
-  ${({ theme }) =>
+  ${({theme}) =>
     `
       ${theme.utils.typography.uppercase};
       ${theme.utils.typography.family.serif};
@@ -34,7 +34,7 @@ const MotionButton = motion(styled(Link)`
       ${theme.utils.background.white};
     `}
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     z-index: -1;
     width: 100%;
@@ -42,7 +42,7 @@ const MotionButton = motion(styled(Link)`
     border-radius: 50%;
     opacity: 0;
     transition: opacity 500ms linear, transform 750ms ease-in-out;
-    ${({ theme }) =>
+    ${({theme}) =>
       `
       background: hsl(${theme.colors.white} / 0.1);
     `}
@@ -54,11 +54,7 @@ const MotionButton = motion(styled(Link)`
   }
 `);
 
-export default function LargeButton({
-  to,
-  children,
-  ...rest
-}: Props): JSX.Element {
+export default function LargeButton({to, children, ...rest}: Props): JSX.Element {
   return (
     <MotionButton to={to} variants={buttonVariants} {...rest}>
       {children}

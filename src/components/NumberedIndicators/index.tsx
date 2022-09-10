@@ -1,1 +1,1 @@
-export { default } from "./NumberedIndicators";
+export {default} from './NumberedIndicators';

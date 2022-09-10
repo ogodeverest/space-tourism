@@ -1,23 +1,23 @@
-import React from "react";
-import { GridContainer, NumberedTitle, UnderlineIndicators } from "components";
-import { Outlet } from "react-router-dom";
-import { AppData, useAppData } from "contexts";
-import { Destination, LinkType } from "models";
-import styled from "styled-components";
-import { mediaQuery } from "theme";
+import React from 'react';
+import {GridContainer, NumberedTitle, UnderlineIndicators} from 'components';
+import {Outlet} from 'react-router-dom';
+import {AppData, useAppData} from 'contexts';
+import {Destination, LinkType} from 'models';
+import styled from 'styled-components';
+import {mediaQuery} from 'theme';
 
 const DestinationGrid = styled(GridContainer).attrs({
-  as: "main",
+  as: 'main',
 })`
   grid-template-areas:
-    "title"
-    "image"
-    "tabs"
-    "content";
+    'title'
+    'image'
+    'tabs'
+    'content';
 
-  ${({ theme }) => theme.utils.general.flow("big")}
+  ${({theme}) => theme.utils.general.flow('big')}
 
-  ${({ theme }) =>
+  ${({theme}) =>
     mediaQuery(
       theme.breakPoints.desktopUp,
       `
@@ -27,19 +27,19 @@ const DestinationGrid = styled(GridContainer).attrs({
       ". title title ."
       ". viewer tabs ."
       ". viewer content .";
-        `
+        `,
     )}
 `;
 
 const StyledTitle = styled(NumberedTitle)`
   grid-area: title;
-  ${({ theme }) =>
+  ${({theme}) =>
     mediaQuery(
       theme.breakPoints.tabletUp,
       `
         justify-self: start;
         margin-top: 2rem;
-      `
+      `,
     )}
 `;
 
@@ -49,15 +49,13 @@ const StyledIndicators = styled(UnderlineIndicators)`
 `;
 
 export default function DestinationLayout() {
-  const { destinations }: AppData = useAppData();
+  const {destinations}: AppData = useAppData();
 
-  const links: LinkType[] = destinations.map(
-    (destination: Destination, index: number) => ({
-      to: destination.slug,
-      children: destination.slug,
-      index,
-    })
-  );
+  const links: LinkType[] = destinations.map((destination: Destination, index: number) => ({
+    to: destination.slug,
+    children: destination.slug,
+    index,
+  }));
 
   return (
     <DestinationGrid>

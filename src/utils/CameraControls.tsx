@@ -1,21 +1,14 @@
-import React, { useRef } from "react";
-import {
-  useFrame,
-  extend,
-  useThree,
-  ReactThreeFiber,
-} from "@react-three/fiber";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import React, {useRef} from 'react';
+import {useFrame, extend, useThree, ReactThreeFiber} from '@react-three/fiber';
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
-extend({ OrbitControls });
+extend({OrbitControls});
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
     interface IntrinsicElements {
-      orbitControls: ReactThreeFiber.Object3DNode<
-        OrbitControls,
-        typeof OrbitControls
-      >;
+      orbitControls: ReactThreeFiber.Object3DNode<OrbitControls, typeof OrbitControls>;
     }
   }
 }
@@ -33,7 +26,7 @@ export default function CameraControls({
 }: Props) {
   const {
     camera,
-    gl: { domElement },
+    gl: {domElement},
   } = useThree();
 
   const controls = useRef<OrbitControls>(null!);
@@ -42,7 +35,7 @@ export default function CameraControls({
     <orbitControls
       ref={controls}
       args={[camera, domElement]}
-      {...{ enableDamping, enableZoom, enablePan }}
+      {...{enableDamping, enableZoom, enablePan}}
       dampingFactor={0.1}
     />
   );

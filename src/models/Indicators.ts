@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import LinkType from "./Link";
+import PropTypes from 'prop-types';
+import LinkType from './Link';
 
 type IndicatorsProps = {
   links: LinkType[];

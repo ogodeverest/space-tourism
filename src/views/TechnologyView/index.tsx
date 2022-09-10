@@ -1,1 +1,1 @@
-export { default } from "./TechnologyView";
+export {default} from './TechnologyView';

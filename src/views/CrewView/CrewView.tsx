@@ -1,35 +1,35 @@
-import React from "react";
-import useCurrentEntity from "hooks/useCurrentEntity";
-import { ModelViewer, Page } from "components";
-import styled from "styled-components";
-import { mediaQuery } from "theme";
-import { motion, Variants } from "framer-motion";
+import React from 'react';
+import useCurrentEntity from 'hooks/useCurrentEntity';
+import {ModelViewer, Page} from 'components';
+import styled from 'styled-components';
+import {mediaQuery} from 'theme';
+import {motion, Variants} from 'framer-motion';
 
 const StyledViewer = styled(ModelViewer)`
   grid-area: viewer;
   align-self: start;
 
-  ${({ theme }) =>
+  ${({theme}) =>
     mediaQuery(
       theme.breakPoints.mobileDown,
       `
       width: 70%;
       height:80%;
-     `
+     `,
     )}
 `;
 
 const StyledArticle = styled.article`
-  ${({ theme }) => theme.utils.general.flow()}
+  ${({theme}) => theme.utils.general.flow()}
   grid-area: content;
 `;
 
 const StyledHeader = styled.header`
-  ${({ theme }) => theme.utils.general.flow("small")}
+  ${({theme}) => theme.utils.general.flow('small')}
 `;
 
 const StyledTitle = styled.h2`
-  ${({ theme }) =>
+  ${({theme}) =>
     `
   color: hsl(${theme.colors.white} / 0.5);
   ${theme.utils.typography.size[600]}
@@ -39,7 +39,7 @@ const StyledTitle = styled.h2`
 `;
 
 const StyledSubtitle = styled.p`
-  ${({ theme }) =>
+  ${({theme}) =>
     `
     ${theme.utils.typography.size[700]}
     ${theme.utils.typography.uppercase}
@@ -85,7 +85,7 @@ export default function CrewView() {
         </StyledHeader>
         <p>{crew.bio}</p>
       </MotionArticle>
-      <StyledViewer model={"Moon.glb"} />
+      <StyledViewer model={'Moon.glb'} />
     </Page>
   );
 }

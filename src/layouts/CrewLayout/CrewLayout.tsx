@@ -1,23 +1,23 @@
-import React from "react";
-import { DotIndicators, GridContainer, NumberedTitle } from "components";
-import { Outlet } from "react-router-dom";
-import { AppData, useAppData } from "contexts";
-import { Crew, LinkType } from "models";
-import styled from "styled-components";
-import { mediaQuery } from "theme";
+import React from 'react';
+import {DotIndicators, GridContainer, NumberedTitle} from 'components';
+import {Outlet} from 'react-router-dom';
+import {AppData, useAppData} from 'contexts';
+import {Crew, LinkType} from 'models';
+import styled from 'styled-components';
+import {mediaQuery} from 'theme';
 
 const CrewGrid = styled(GridContainer).attrs({
-  as: "main",
+  as: 'main',
 })`
   grid-template-areas:
-    "title"
-    "viewer"
-    "tabs"
-    "content";
+    'title'
+    'viewer'
+    'tabs'
+    'content';
 
-  ${({ theme }) => theme.utils.general.flow("big")}
+  ${({theme}) => theme.utils.general.flow('big')}
 
-  ${({ theme }) =>
+  ${({theme}) =>
     mediaQuery(
       theme.breakPoints.desktopUp,
       `
@@ -30,19 +30,19 @@ const CrewGrid = styled(GridContainer).attrs({
         ". title title ."
         ". content viewer ."
         ". tabs viewer .";
-        `
+        `,
     )}
 `;
 
 const StyledTitle = styled(NumberedTitle)`
   grid-area: title;
-  ${({ theme }) =>
+  ${({theme}) =>
     mediaQuery(
       theme.breakPoints.tabletUp,
       `
         justify-self: start;
         margin-top: 2rem;
-      `
+      `,
     )}
 `;
 
@@ -51,7 +51,7 @@ const StyledIndicators = styled(DotIndicators)`
 `;
 
 export default function CrewLayout() {
-  const { crew }: AppData = useAppData();
+  const {crew}: AppData = useAppData();
 
   const links: LinkType[] = crew.map((member: Crew, index: number) => ({
     to: member.slug,

@@ -1,1 +1,1 @@
-export { default } from "./HomeScene";
+export {default} from './HomeScene';

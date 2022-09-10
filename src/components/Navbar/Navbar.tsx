@@ -1,43 +1,43 @@
-import React, { useEffect } from "react";
-import styled, { DefaultTheme, useTheme } from "styled-components";
-import { useCycle } from "framer-motion";
-import { mediaQuery } from "theme";
-import { SROnly, UnderlineIndicators } from "components";
-import LogoImage from "assets/shared/logo.svg";
-import HamburgerImage from "assets/shared/icon-hamburger.svg";
-import CloseImage from "assets/shared/icon-close.svg";
-import useMediaQuery from "hooks/useMediaQuery";
-import { LinkType } from "models";
+import React, {useEffect} from 'react';
+import styled, {DefaultTheme, useTheme} from 'styled-components';
+import {useCycle} from 'framer-motion';
+import {mediaQuery} from 'theme';
+import {SROnly, UnderlineIndicators} from 'components';
+import LogoImage from 'assets/shared/logo.svg';
+import HamburgerImage from 'assets/shared/icon-hamburger.svg';
+import CloseImage from 'assets/shared/icon-close.svg';
+import useMediaQuery from 'hooks/useMediaQuery';
+import {LinkType} from 'models';
 
 const links: LinkType[] = [
   {
-    to: "home",
-    children: "Home",
+    to: 'home',
+    children: 'Home',
     index: 0,
   },
   {
-    to: "destinations",
-    children: "Destination",
+    to: 'destinations',
+    children: 'Destination',
     index: 1,
   },
   {
-    to: "crew",
-    children: "Crew",
+    to: 'crew',
+    children: 'Crew',
     index: 2,
   },
   {
-    to: "technologies",
-    children: "Technology",
+    to: 'technologies',
+    children: 'Technology',
     index: 3,
   },
 ];
 
 const StyledHeader = styled.header`
   z-index: 10;
-  ${({ theme }) => theme.utils.general.flex()}
+  ${({theme}) => theme.utils.general.flex()}
   justify-content: space-between;
   align-items: center;
-  ${({ theme }) =>
+  ${({theme}) =>
     mediaQuery(
       theme.breakPoints.desktopUp,
       `
@@ -50,7 +50,7 @@ const StyledHeader = styled.header`
             margin-right: -2.5rem;
             background: hsl(${theme.colors.white} / 0.25);
             order: 1;
-        }`
+        }`,
     )};
 `;
 
@@ -61,19 +61,14 @@ const StyledNav = styled.nav`
 const NavigationList = styled(UnderlineIndicators)`
   padding: 0;
   margin: 0;
-  background: hsl(${({ theme }) => theme.colors.white} / 0.05);
+  background: hsl(${({theme}) => theme.colors.white} / 0.05);
   backdrop-filter: blur(1.5rem);
 
-  ${({ theme }) =>
-    mediaQuery(theme.breakPoints.desktopUp, "margin-block: 2rem;")}
+  ${({theme}) => mediaQuery(theme.breakPoints.desktopUp, 'margin-block: 2rem;')}
 
-  ${({ theme }) =>
-    mediaQuery(
-      theme.breakPoints.tabletUp,
-      "padding-inline: clamp(3rem, 7vw, 7rem);"
-    )}
+  ${({theme}) => mediaQuery(theme.breakPoints.tabletUp, 'padding-inline: clamp(3rem, 7vw, 7rem);')}
 
-  ${({ theme }) =>
+  ${({theme}) =>
     mediaQuery(
       theme.breakPoints.mobileDown,
       `position: fixed;
@@ -82,11 +77,11 @@ const NavigationList = styled(UnderlineIndicators)`
        list-style: none;
        padding: min(20rem, 15vh) 2rem;
        margin: 0;
-       flex-direction: column;`
+       flex-direction: column;`,
     )}
 
     & a {
-    ${({ theme }) =>
+    ${({theme}) =>
       `
       ${theme.utils.typography.family.sansCond}
       ${theme.utils.typography.uppercase}
@@ -102,7 +97,7 @@ const StyledImage = styled.img`
 
 const StyledToggle = styled.button`
   display: none;
-  ${({ theme, isVisible }: { theme: DefaultTheme; isVisible: boolean }) =>
+  ${({theme, isVisible}: {theme: DefaultTheme; isVisible: boolean}) =>
     mediaQuery(
       theme.breakPoints.mobileDown,
       `
@@ -123,7 +118,7 @@ const StyledToggle = styled.button`
             outline: 5px solid white;
             outline-offset: 5px;
         }
-    `
+    `,
     )};
 `;
 
@@ -152,7 +147,7 @@ export default function Navbar(): JSX.Element {
       <StyledNav>
         <NavigationList
           role="navigation"
-          underlineGap={matches ? "0.8rem" : "2rem"}
+          underlineGap={matches ? '0.8rem' : '2rem'}
           gap="clamp(1.5rem, 5vw, 3.5rem)"
           links={links}
           visible={visible}

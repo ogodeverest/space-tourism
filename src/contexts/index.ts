@@ -1,1 +1,1 @@
-export { default as AppProvider, useAppData, type AppData } from "./AppContext";
+export {default as AppProvider, useAppData, type AppData} from './AppContext';

@@ -1,1 +1,1 @@
-export { default } from "./SROnly";
+export {default} from './SROnly';

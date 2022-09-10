@@ -1,1 +1,1 @@
-export { default } from "./UnderlineIndicators";
+export {default} from './UnderlineIndicators';

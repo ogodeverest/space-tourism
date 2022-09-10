@@ -1,17 +1,17 @@
-import React from "react";
-import styled from "styled-components";
-import { mediaQuery } from "theme";
-import { motion, AnimatePresence, Variants } from "framer-motion";
-import { GridContainer, LargeButton, Page, SkipToContent } from "components";
-import { HomeScene } from "./components";
-import { useAppData } from "contexts";
+import React from 'react';
+import styled from 'styled-components';
+import {mediaQuery} from 'theme';
+import {motion, AnimatePresence, Variants} from 'framer-motion';
+import {GridContainer, LargeButton, Page, SkipToContent} from 'components';
+import {HomeScene} from './components';
+import {useAppData} from 'contexts';
 
 const HomeGrid = styled(GridContainer).attrs({
-  as: "main",
+  as: 'main',
 })`
   z-index: 1;
   height: 100%;
-  ${({ theme }) =>
+  ${({theme}) =>
     mediaQuery(
       theme.breakPoints.desktopUp,
       `
@@ -25,12 +25,12 @@ const HomeGrid = styled(GridContainer).attrs({
     & > *:last-child {
       grid-column: 3;
     }
-  `
+  `,
     )}
 `;
 
 const StyledH1 = styled.h1`
-  ${({ theme }) => `
+  ${({theme}) => `
    ${theme.utils.typography.color.accent}
    ${theme.utils.typography.size[500]}
    ${theme.utils.typography.family.sansCond}
@@ -40,7 +40,7 @@ const StyledH1 = styled.h1`
 `;
 
 const StyledSpan = styled.span`
-  ${({ theme }) => `
+  ${({theme}) => `
     ${theme.utils.general.block}
     ${theme.utils.typography.size[900]}
     ${theme.utils.typography.family.serif}
@@ -53,7 +53,7 @@ const homeVariants: Variants = {
   hidden: {
     opacity: 0,
     transition: {
-      when: "afterChildren",
+      when: 'afterChildren',
       staggerChildren: 0.8,
       staggerDirection: -1,
     },
@@ -61,7 +61,7 @@ const homeVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      when: "beforeChildren",
+      when: 'beforeChildren',
       staggerChildren: 0.8,
       staggerDirection: 1,
     },
@@ -91,7 +91,7 @@ const MotionTitle = motion(StyledH1);
 const MotionPage = motion(Page);
 
 export default function HomeView(): JSX.Element {
-  const { destinations } = useAppData();
+  const {destinations} = useAppData();
 
   return (
     <AnimatePresence>
@@ -105,22 +105,16 @@ export default function HomeView(): JSX.Element {
         <SkipToContent hash="#explore" />
         <HomeGrid>
           <div>
-            <MotionTitle variants={introVariants}>
-              So, you want to travel to
-            </MotionTitle>
+            <MotionTitle variants={introVariants}>So, you want to travel to</MotionTitle>
             <MotionSpan variants={introVariants}>Space</MotionSpan>
             <motion.p variants={introVariants}>
-              Let’s face it; if you want to go to space, you might as well
-              genuinely go to outer space and not hover kind of on the edge of
-              it. Well sit back, and relax because we’ll give you a truly out of
-              this world experience!
+              Let’s face it; if you want to go to space, you might as well genuinely go to outer
+              space and not hover kind of on the edge of it. Well sit back, and relax because we’ll
+              give you a truly out of this world experience!
             </motion.p>
           </div>
           <div>
-            <LargeButton
-              id="explore"
-              to={`/destinations/${destinations[0].slug}`}
-            >
+            <LargeButton id="explore" to={`/destinations/${destinations[0].slug}`}>
               Explore
             </LargeButton>
           </div>

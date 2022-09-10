@@ -36,7 +36,9 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "lint": "npx eslint src --color",
-    "lint:fix": "npx eslint src --fix"
+    "lint:fix": "npx eslint src --fix",
+    "prettier": "prettier src --check",
+    "prettier:fix": "prettier --write --cache src"
   },
   "eslintConfig": {
     "extends": [
@@ -64,6 +66,8 @@
     "@typescript-eslint/eslint-plugin": "^5.35.1",
     "@typescript-eslint/parser": "^5.35.1",
     "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.1",
     "gh-pages": "^4.0.0"
   }

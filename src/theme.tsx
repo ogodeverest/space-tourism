@@ -1,16 +1,16 @@
-import { Colors, Families, Sizes } from "styled";
-import { DefaultTheme } from "styled-components";
+import {Colors, Families, Sizes} from 'styled';
+import {DefaultTheme} from 'styled-components';
 
 const colors: Colors = {
-  dark: "230 35% 7%",
-  light: "231 77% 90%",
-  white: "0 0% 100%",
+  dark: '230 35% 7%',
+  light: '231 77% 90%',
+  white: '0 0% 100%',
 };
 
 const familyNames = {
-  bellafair: "Bellefair",
-  barlowCond: "Barlow Condensed",
-  barlow: "Barlow",
+  bellafair: 'Bellefair',
+  barlowCond: 'Barlow Condensed',
+  barlow: 'Barlow',
 };
 
 const families: Families = {
@@ -20,17 +20,17 @@ const families: Families = {
 };
 
 const sizes: Sizes = {
-  900: "clamp(5rem, 8vw + 1rem, 9.375rem)",
-  800: "clamp(3.5rem, 7vw + 1rem, 6.25rem)",
-  700: "clamp(1.5rem, 5vw + 1rem, 3.5rem)",
-  600: "clamp(1rem, 2vw + .5rem, 2rem)",
-  500: "clamp(1rem, 2vw + .5rem, 1.75rem)",
-  400: "clamp(0.9375rem,2vw + .3rem, 1.125rem)",
-  300: "1rem",
-  200: "0.875rem",
+  900: 'clamp(5rem, 8vw + 1rem, 9.375rem)',
+  800: 'clamp(3.5rem, 7vw + 1rem, 6.25rem)',
+  700: 'clamp(1.5rem, 5vw + 1rem, 3.5rem)',
+  600: 'clamp(1rem, 2vw + .5rem, 2rem)',
+  500: 'clamp(1rem, 2vw + .5rem, 1.75rem)',
+  400: 'clamp(0.9375rem,2vw + .3rem, 1.125rem)',
+  300: '1rem',
+  200: '0.875rem',
 };
 
-const bigLineHeight = "line-height: 1.1;";
+const bigLineHeight = 'line-height: 1.1;';
 
 const theme: DefaultTheme = {
   colors,
@@ -40,15 +40,11 @@ const theme: DefaultTheme = {
   },
   utils: {
     general: {
-      flex: (gap = "1rem") => `display: flex;gap: ${gap};`,
-      grid: (gap = "1rem") => `display: grid;gap: ${gap};`,
-      block: "display: block;",
-      flow: (
-        space: "normal" | "small" | "big" = "normal"
-      ) => `& > *:where(:not(:first-child)) {
-        margin-top: ${
-          space === "normal" ? "1rem" : space === "small" ? "0.75rem" : "2rem"
-        };
+      flex: (gap = '1rem') => `display: flex;gap: ${gap};`,
+      grid: (gap = '1rem') => `display: grid;gap: ${gap};`,
+      block: 'display: block;',
+      flow: (space: 'normal' | 'small' | 'big' = 'normal') => `& > *:where(:not(:first-child)) {
+        margin-top: ${space === 'normal' ? '1rem' : space === 'small' ? '0.75rem' : '2rem'};
       }`,
     },
     background: {
@@ -63,11 +59,11 @@ const theme: DefaultTheme = {
         sansNormal: `font-family:${families.sansNormal};`,
       },
       letterSpacing: {
-        1: "letter-spacing: 4.75px;",
-        2: "letter-spacing: 2.7px;",
-        3: "letter-spacing: 2.35px;",
+        1: 'letter-spacing: 4.75px;',
+        2: 'letter-spacing: 2.7px;',
+        3: 'letter-spacing: 2.35px;',
       },
-      uppercase: "text-transform:uppercase;",
+      uppercase: 'text-transform:uppercase;',
       size: {
         900: `font-size: ${sizes[900]};${bigLineHeight}`,
         800: `font-size: ${sizes[800]};${bigLineHeight}`,
@@ -118,14 +114,14 @@ export function generateBackgrounds({
     `
       background-position: center center;
       background-image: url(${tablet});
-    `
+    `,
   )}
 
 
   ${mediaQuery(
     theme.breakPoints.desktopUp,
     `
-      background-image: url(${desktop});    `
+      background-image: url(${desktop});    `,
   )}`;
 }
 

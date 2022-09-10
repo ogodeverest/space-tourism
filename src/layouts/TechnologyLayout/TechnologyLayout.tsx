@@ -1,24 +1,24 @@
-import React from "react";
-import { NumberedIndicators, GridContainer, NumberedTitle } from "components";
-import { Outlet } from "react-router-dom";
-import { AppData, useAppData } from "contexts";
-import { Technology, LinkType } from "models";
-import styled from "styled-components";
-import { mediaQuery } from "theme";
+import React from 'react';
+import {NumberedIndicators, GridContainer, NumberedTitle} from 'components';
+import {Outlet} from 'react-router-dom';
+import {AppData, useAppData} from 'contexts';
+import {Technology, LinkType} from 'models';
+import styled from 'styled-components';
+import {mediaQuery} from 'theme';
 
 const TechnologyGrid = styled(GridContainer).attrs({
-  as: "main",
+  as: 'main',
 })`
   padding-inline: 0;
   grid-template-areas:
-    "title"
-    "viewer"
-    "tabs"
-    "content";
+    'title'
+    'viewer'
+    'tabs'
+    'content';
 
-  ${({ theme }) => theme.utils.general.flow("big")}
+  ${({theme}) => theme.utils.general.flow('big')}
 
-  ${({ theme }) =>
+  ${({theme}) =>
     mediaQuery(
       theme.breakPoints.desktopUp,
       `
@@ -30,19 +30,19 @@ const TechnologyGrid = styled(GridContainer).attrs({
         ". title title title ."
         ". tabs content viewer viewer"
         ". tabs content viewer viewer";
-        `
+        `,
     )}
 `;
 
 const StyledTitle = styled(NumberedTitle)`
   grid-area: title;
-  ${({ theme }) =>
+  ${({theme}) =>
     mediaQuery(
       theme.breakPoints.tabletUp,
       `
         justify-self: start;
         margin-top: 2rem;
-      `
+      `,
     )}
 `;
 
@@ -51,15 +51,13 @@ const StyledIndicators = styled(NumberedIndicators)`
 `;
 
 export default function TechnologyLayout() {
-  const { technologies }: AppData = useAppData();
+  const {technologies}: AppData = useAppData();
 
-  const links: LinkType[] = technologies.map(
-    (technology: Technology, index: number) => ({
-      to: technology.slug,
-      children: technology.slug,
-      index,
-    })
-  );
+  const links: LinkType[] = technologies.map((technology: Technology, index: number) => ({
+    to: technology.slug,
+    children: technology.slug,
+    index,
+  }));
 
   return (
     <TechnologyGrid>

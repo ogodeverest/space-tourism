@@ -1,1 +1,1 @@
-export { default } from "./CrewView";
+export {default} from './CrewView';

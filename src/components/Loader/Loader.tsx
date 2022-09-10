@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
   position: relative;
@@ -13,19 +13,9 @@ const StyledWrapper = styled.div`
 export default function Loader() {
   return (
     <StyledWrapper>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={38}
-        height={38}
-        stroke="#fff"
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" width={38} height={38} stroke="#fff">
         <script />
-        <g
-          transform="translate(1 1)"
-          strokeWidth={2}
-          fill="none"
-          fillRule="evenodd"
-        >
+        <g transform="translate(1 1)" strokeWidth={2} fill="none" fillRule="evenodd">
           <circle strokeOpacity={0.5} cx={18} cy={18} r={18} />
           <path d="M36 18c0-9.94-8.06-18-18-18">
             <animateTransform

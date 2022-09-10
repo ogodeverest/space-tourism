@@ -1,28 +1,28 @@
 export default function wrapPromise(promise: Promise<any>) {
-  let status = "pending";
+  let status = 'pending';
   let response: any | Error;
 
   const suspender = promise.then(
     (res: any) => {
-      status = "success";
+      status = 'success';
       response = res;
     },
     (err: Error) => {
-      status = "error";
+      status = 'error';
       response = err;
-    }
+    },
   );
 
   const read = () => {
     switch (status) {
-      case "pending":
+      case 'pending':
         throw suspender;
-      case "error":
+      case 'error':
         throw response;
       default:
         return response;
     }
   };
 
-  return { read };
+  return {read};
 }

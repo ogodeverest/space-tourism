@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import endpoints from "api/endpoints";
+import {createGlobalStyle} from 'styled-components';
+import endpoints from 'api/endpoints';
 
 const GlobalStyle = createGlobalStyle`
     *,
@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     ::selection {
-     ${({ theme }) =>
+     ${({theme}) =>
        `${theme.utils.background.accent};
         ${theme.utils.typography.color.dark}`}
     }
@@ -43,10 +43,10 @@ const GlobalStyle = createGlobalStyle`
 
     /* set up the body */
     #root {
-      font-family: ${({ theme }) => theme.font.families.sansNormal};
-      font-size: ${({ theme }) => theme.font.sizes[400]};
-      color:  ${({ theme }) => `hsl(${theme.colors.white})`};
-      background-color:   ${({ theme }) => `hsl(${theme.colors.dark})`};
+      font-family: ${({theme}) => theme.font.families.sansNormal};
+      font-size: ${({theme}) => theme.font.sizes[400]};
+      color:  ${({theme}) => `hsl(${theme.colors.white})`};
+      background-color:   ${({theme}) => `hsl(${theme.colors.dark})`};
       line-height: 1.5;
       min-height: 100vh;
 

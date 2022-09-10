@@ -1,7 +1,7 @@
-import React, { createContext, ReactNode, useContext } from "react";
-import { Crew, Technology, Destination } from "models";
-import { fetchCrew, fetchTechnologies, fetchDestinations } from "api";
-import { wrapPromise } from "utils";
+import React, {createContext, ReactNode, useContext} from 'react';
+import {Crew, Technology, Destination} from 'models';
+import {fetchCrew, fetchTechnologies, fetchDestinations} from 'api';
+import {wrapPromise} from 'utils';
 
 export type AppData = {
   destinations: Destination[];
@@ -26,11 +26,11 @@ const resource = wrapPromise(
       crew: data[0],
       technologies: data[1],
       destinations: data[2],
-    })
-  )
+    }),
+  ),
 );
 
-const AppProvider = ({ children }: Props) => {
+const AppProvider = ({children}: Props) => {
   const data: AppData = resource.read();
 
   return <AppContext.Provider value={data}>{children}</AppContext.Provider>;

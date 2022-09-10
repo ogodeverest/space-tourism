@@ -1,1 +1,1 @@
-export { default } from "./LargeButton";
+export {default} from './LargeButton';

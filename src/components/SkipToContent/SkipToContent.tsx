@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 type Props = {
   hash: string;
@@ -23,7 +23,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export default function SkipToContent({ hash }: Props): JSX.Element {
+export default function SkipToContent({hash}: Props): JSX.Element {
   return (
     <StyledLink
       to={{

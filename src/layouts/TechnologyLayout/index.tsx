@@ -1,1 +1,1 @@
-export { default } from "./TechnologyLayout";
+export {default} from './TechnologyLayout';
