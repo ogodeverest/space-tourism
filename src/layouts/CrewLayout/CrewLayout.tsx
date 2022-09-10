@@ -11,11 +11,19 @@ const CrewGrid = styled(GridContainer).attrs({
 })`
   grid-template-areas:
     'title'
-    'viewer'
+    'picture'
     'tabs'
     'content';
 
   ${({theme}) => theme.utils.general.flow('big')}
+
+  ${({theme}) =>
+    mediaQuery(
+      theme.breakPoints.tabletUp,
+      `
+        padding-bottom:0;
+      `,
+    )}
 
   ${({theme}) =>
     mediaQuery(
@@ -28,8 +36,8 @@ const CrewGrid = styled(GridContainer).attrs({
       justify-items: start;
       grid-template-areas:
         ". title title ."
-        ". content viewer ."
-        ". tabs viewer .";
+        ". content picture ."
+        ". tabs picture .";
         `,
     )}
 `;

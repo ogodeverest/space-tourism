@@ -1,20 +1,23 @@
 import React from 'react';
-import useCurrentEntity from 'hooks/useCurrentEntity';
-import {ModelViewer, Page} from 'components';
 import styled from 'styled-components';
-import {mediaQuery} from 'theme';
 import {motion, Variants} from 'framer-motion';
+import {Page} from 'components';
+import {mediaQuery} from 'theme';
+import useCurrentEntity from 'hooks/useCurrentEntity';
+import endpoints from 'api/endpoints';
 
-const StyledViewer = styled(ModelViewer)`
-  grid-area: viewer;
-  align-self: start;
+const StyledPicture = styled.picture`
+  grid-area: picture;
+  max-width: 60%;
+  border-bottom: 1px solid hsl(${({theme}) => theme.colors.white} / 0.1);
 
   ${({theme}) =>
     mediaQuery(
-      theme.breakPoints.mobileDown,
+      theme.breakPoints.desktopUp,
       `
-      width: 70%;
-      height:80%;
+      grid-column: span 2;
+      align-self: end;
+      max-width: 80%;
      `,
     )}
 `;
@@ -48,7 +51,9 @@ const StyledSubtitle = styled.p`
 `;
 const MotionArticle = motion(StyledArticle);
 
-const variants: Variants = {
+const MotionPicture = motion(StyledPicture);
+
+const articleVariants: Variants = {
   hidden: {
     y: 10,
     opacity: 0,
@@ -58,6 +63,20 @@ const variants: Variants = {
   },
   visible: {
     y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+const pictureVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  visible: {
     opacity: 1,
     transition: {
       duration: 0.5,
@@ -76,7 +95,7 @@ export default function CrewView() {
         initial="hidden"
         animate="visible"
         exit="hidden"
-        variants={variants}
+        variants={articleVariants}
         key={crew.name}
       >
         <StyledHeader>
@@ -85,7 +104,16 @@ export default function CrewView() {
         </StyledHeader>
         <p>{crew.bio}</p>
       </MotionArticle>
-      <StyledViewer model={'Moon.glb'} />
+      <MotionPicture
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        variants={pictureVariants}
+        key={crew.images.png}
+      >
+        <source srcSet={endpoints.images + crew.images.webp} type="image/webp" />
+        <img src={endpoints.images + crew.images.png} alt={crew.name} />
+      </MotionPicture>
     </Page>
   );
 }
