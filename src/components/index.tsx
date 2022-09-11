@@ -10,4 +10,3 @@ export {default as NumberedIndicators} from './NumberedIndicators';
 export {default as Loader} from './Loader';
 export {default as Navbar} from './Navbar';
 export {default as GridContainer} from './GridContainer';
-export {default as ModelViewer} from './ModelViewer';

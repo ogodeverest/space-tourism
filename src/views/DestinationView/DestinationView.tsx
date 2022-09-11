@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import {motion, Variants} from 'framer-motion';
 import {mediaQuery} from 'theme';
-import {ModelViewer} from 'components';
+import {DestinationViewer} from './components';
 import useCurrentEntity from 'hooks/useCurrentEntity';
 import {Page} from 'components';
 
-const StyledViewer = styled(ModelViewer)`
+const StyledViewer = styled(DestinationViewer)`
   grid-area: viewer;
   align-self: start;
 

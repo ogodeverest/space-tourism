@@ -1,11 +1,12 @@
 import React from 'react';
+import {motion, Variants} from 'framer-motion';
+import {TechnologyViewer} from './components';
 import useCurrentEntity from 'hooks/useCurrentEntity';
-import {ModelViewer, Page} from 'components';
+import {Page} from 'components';
 import styled from 'styled-components';
 import {mediaQuery} from 'theme';
-import {motion, Variants} from 'framer-motion';
 
-const StyledViewer = styled(ModelViewer)`
+const StyledViewer = styled(TechnologyViewer)`
   grid-area: viewer;
 
   ${({theme}) =>
@@ -97,7 +98,7 @@ export default function TechnologyView() {
 
         <p>{technology.description}</p>
       </MotionArticle>
-      <StyledViewer model={'Capsule.glb'} />
+      <StyledViewer model={technology.model} />
     </Page>
   );
 }
