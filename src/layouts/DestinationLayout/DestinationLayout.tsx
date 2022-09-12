@@ -5,13 +5,14 @@ import {AppData, useAppData} from 'contexts';
 import {Destination, LinkType} from 'models';
 import styled from 'styled-components';
 import {mediaQuery} from 'theme';
+import useResourceClass from 'hooks/useResourceClass';
 
 const DestinationGrid = styled(GridContainer).attrs({
   as: 'main',
 })`
   grid-template-areas:
     'title'
-    'image'
+    'viewer'
     'tabs'
     'content';
 
@@ -50,7 +51,7 @@ const StyledIndicators = styled(UnderlineIndicators)`
 
 export default function DestinationLayout() {
   const {destinations}: AppData = useAppData();
-
+  useResourceClass();
   const links: LinkType[] = destinations.map((destination: Destination, index: number) => ({
     to: destination.slug,
     children: destination.slug,

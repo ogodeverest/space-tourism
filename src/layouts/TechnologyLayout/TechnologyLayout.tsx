@@ -5,6 +5,7 @@ import {AppData, useAppData} from 'contexts';
 import {Technology, LinkType} from 'models';
 import styled from 'styled-components';
 import {mediaQuery} from 'theme';
+import useResourceClass from 'hooks/useResourceClass';
 
 const TechnologyGrid = styled(GridContainer).attrs({
   as: 'main',
@@ -52,6 +53,7 @@ const StyledIndicators = styled(NumberedIndicators)`
 
 export default function TechnologyLayout() {
   const {technologies}: AppData = useAppData();
+  useResourceClass();
 
   const links: LinkType[] = technologies.map((technology: Technology, index: number) => ({
     to: technology.slug,

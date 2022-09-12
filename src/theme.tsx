@@ -95,36 +95,6 @@ export function mediaQuery(breakPoint: string, rules: string) {
   }`;
 }
 
-export function generateBackgrounds({
-  mobile,
-  tablet,
-  desktop,
-}: {
-  mobile: string;
-  tablet: string;
-  desktop: string;
-}) {
-  return `
-  background-size: cover;
-  background-position: bottom center;
-  background-image: url(${mobile});
-
-  ${mediaQuery(
-    theme.breakPoints.tabletUp,
-    `
-      background-position: center center;
-      background-image: url(${tablet});
-    `,
-  )}
-
-
-  ${mediaQuery(
-    theme.breakPoints.desktopUp,
-    `
-      background-image: url(${desktop});    `,
-  )}`;
-}
-
 export function getFonts(): string[] {
   return Object.values(familyNames);
 }

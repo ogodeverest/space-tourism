@@ -5,6 +5,7 @@ import {AppData, useAppData} from 'contexts';
 import {Crew, LinkType} from 'models';
 import styled from 'styled-components';
 import {mediaQuery} from 'theme';
+import useResourceClass from 'hooks/useResourceClass';
 
 const CrewGrid = styled(GridContainer).attrs({
   as: 'main',
@@ -60,6 +61,8 @@ const StyledIndicators = styled(DotIndicators)`
 
 export default function CrewLayout() {
   const {crew}: AppData = useAppData();
+
+  useResourceClass();
 
   const links: LinkType[] = crew.map((member: Crew, index: number) => ({
     to: member.slug,
